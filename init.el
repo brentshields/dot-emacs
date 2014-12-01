@@ -22,6 +22,8 @@
 (ensure-installed 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
 
+(ensure-installed 'magit)
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (set-default 'indicate-empty-lines t)
