@@ -23,6 +23,7 @@
 (exec-path-from-shell-initialize)
 
 (ensure-installed 'magit)
+(load "rebase-mode.el" 'noerror)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
