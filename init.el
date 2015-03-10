@@ -53,7 +53,9 @@
 (load custom-file 'noerror)
 
 (ensure-installed 'color-theme-solarized)
-(load-theme 'solarized-dark t)
+(load-theme 'solarized t)
+(set-frame-parameter nil 'background-mode 'dark)
+(enable-theme 'solarized)
 
 (set-face-attribute 'default nil :family "Andale Mono")
 (set-face-attribute 'default nil :height 140)
