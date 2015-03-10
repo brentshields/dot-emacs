@@ -59,6 +59,21 @@
 (set-face-attribute 'default nil :height 140)
 (add-to-list 'default-frame-alist '(height . 49))
 
+;; Add local delete trailing whitespace hook
+(defun no-whitespace()
+  (add-hook 'local-write-file-hooks
+            '(lambda() (save-excursion (delete-trailing-whitespace)))))
+
+
+;; Gyp handling
+(add-to-list 'auto-mode-alist '("\\.gyp\\'" . python-mode))
+(add-to-list 'auto-mode-alist '("\\.gypi\\'" . python-mode))
+(add-hook 'python-mode-hook (lambda ()
+                              (no-whitespace)
+                              (setq python-indent-offset 4)))
+
+
+;; C++ environment
 (add-hook 'c++-mode-hook
   (lambda ()
     (auto-fill-mode)
@@ -66,5 +81,4 @@
     (setq c-basic-offset 2)
     (setq indent-tabs-mode nil)
     (c-set-offset 'innamespace 0)
-    (add-hook 'local-write-file-hooks
-      '(lambda() (save-excursion (delete-trailing-whitespace))))))
+    (no-whitespace)))
