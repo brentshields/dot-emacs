@@ -64,8 +64,7 @@
 ;; Add local delete trailing whitespace hook
 (defun no-whitespace()
   (add-hook 'local-write-file-hooks
-            '(lambda() (save-excursion (delete-trailing-whitespace)))))
-
+            '(lambda () (save-excursion (delete-trailing-whitespace)))))
 
 ;; Gyp handling
 (add-to-list 'auto-mode-alist '("\\.gyp\\'" . python-mode))
@@ -74,13 +73,19 @@
                               (no-whitespace)
                               (setq python-indent-offset 4)))
 
+(defun c-like()
+  (auto-fill-mode)
+  (c-set-style "bsd")
+  (setq c-basic-offset 2)
+  (setq indent-tabs-mode nil)
+  (c-set-offset 'innamespace 0)
+  (no-whitespace))
 
-;; C++ environment
-(add-hook 'c++-mode-hook
-  (lambda ()
-    (auto-fill-mode)
-    (c-set-style "bsd")
-    (setq c-basic-offset 2)
-    (setq indent-tabs-mode nil)
-    (c-set-offset 'innamespace 0)
-    (no-whitespace)))
+;; objc
+(add-hook 'objc-mode-hook 'c-like)
+
+;; c
+(add-hook 'c-mode-hook 'c-like)
+
+;; c++
+(add-hook 'c++-mode-hook 'c-like)
