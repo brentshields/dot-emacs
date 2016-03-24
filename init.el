@@ -98,3 +98,6 @@
 ;;   (add-hook 'local-write-file-hooks
 ;;             '(lambda () (save-excursion (clang-format-buffer))))))
 (defalias 'uglify 'clang-format-buffer)
+
+;; js
+(add-hook `js-mode-hook (lambda () (no-whitespace) (setq js-indent-level 2)))
