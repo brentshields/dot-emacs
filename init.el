@@ -89,3 +89,12 @@
 
 ;; c++
 (add-hook 'c++-mode-hook 'c-like)
+
+;; clang format
+(ensure-installed 'clang-format)
+;;(add-hook
+;; 'c++-mode-hook
+;; (lambda ()
+;;   (add-hook 'local-write-file-hooks
+;;             '(lambda () (save-excursion (clang-format-buffer))))))
+(defalias 'uglify 'clang-format-buffer)
