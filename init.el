@@ -51,6 +51,9 @@
 
 (ensure-installed 'markdown-mode)
 
+(ensure-installed 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
 
@@ -131,3 +134,6 @@
 
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 
+(add-hook 'yaml-mode-hook
+          (lambda ()
+            (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
