@@ -139,3 +139,5 @@
             (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 (add-hook 'purescript-mode-hook 'turn-on-purescript-indentation)
+
+(ensure-installed 'typescript-mode)
