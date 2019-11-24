@@ -141,3 +141,10 @@
 (add-hook 'purescript-mode-hook 'turn-on-purescript-indentation)
 
 (ensure-installed 'typescript-mode)
+
+(defun my-typescript-hook ()
+  (setq typescript-indent-level 2)
+)
+(add-hook 'typescript-mode-hook 'my-typescript-hook)
+
+(ensure-installed 'graphql-mode)
