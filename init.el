@@ -1,7 +1,7 @@
 (require 'package)
 
 (setq package-archives '(;; ("gnu" . "http://elpa.gnu.org/packages/")
-			 ("marmalade" . "https://marmalade-repo.org/packages/")
+			 ;; ("marmalade" . "https://marmalade-repo.org/packages/")
                          ;; ("org" . "http://orgmode.org/elpa/")
                          ("melpa" . "https://melpa.org/packages/")))
 
@@ -57,13 +57,12 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
 
-(ensure-installed 'color-theme-solarized)
-(load-theme 'solarized t)
+(ensure-installed 'solarized-theme)
+(load-theme 'solarized-dark t)
 (set-frame-parameter nil 'background-mode 'dark)
-(enable-theme 'solarized)
 
 (set-face-attribute 'default nil :family "Andale Mono")
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 220)
 (add-to-list 'default-frame-alist '(height . 49))
 
 ;; Add local delete trailing whitespace hook
@@ -148,3 +147,6 @@
 (add-hook 'typescript-mode-hook 'my-typescript-hook)
 
 (ensure-installed 'graphql-mode)
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
