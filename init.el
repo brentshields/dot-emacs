@@ -148,5 +148,8 @@
 
 (ensure-installed 'graphql-mode)
 
+(ensure-installed 'nix-mode)
+(add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
