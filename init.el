@@ -62,7 +62,7 @@
 (set-frame-parameter nil 'background-mode 'dark)
 
 (set-face-attribute 'default nil :family "Andale Mono")
-(set-face-attribute 'default nil :height 220)
+(set-face-attribute 'default nil :height 110)
 (add-to-list 'default-frame-alist '(height . 49))
 
 ;; Add local delete trailing whitespace hook
